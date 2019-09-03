@@ -14,8 +14,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import nicapp.nic.bihar.nicapp.SignupPage;
-
 import static android.widget.Toast.LENGTH_LONG;
 
 
