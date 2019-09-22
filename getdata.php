@@ -1,7 +1,7 @@
 <?php
 $host="localhost";
-$mysql_user="id10031948_myfirstonlinedatabase";
-$mysql_pass="123456789";
+$mysql_user="";
+$mysql_pass="";
 $db_name="id10031948_app_db";
 $sql = "SELECT * FROM Score where GameNo=1;";
 $con = mysqli_connect($host,$mysql_user,$mysql_pass,$db_name);
