@@ -1,0 +1,19 @@
+<?php
+$host="localhost";
+$mysql_user="";
+$mysql_pass="";
+$db_name="id10031948_app_db";
+
+$con = mysqli_connect($host,$mysql_user,$mysql_pass,$db_name);
+if(!$con)
+{
+die("Error in Connection" . mysqli_connect_error()); 
+//echo "Connection Error".mysqli_connect_error();
+}
+else
+{
+  echo "<h3>Connection Established </h3>";
+} 
+
+
+?>
