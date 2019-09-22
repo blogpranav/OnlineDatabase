@@ -1,0 +1,68 @@
+public void getJSON(View view)
+    {
+      new BackgroundTask().execute();
+    }
+
+    class BackgroundTask extends AsyncTask<Void,Void,String>
+    {
+        String url1;
+        @Override
+        protected void onPostExecute(String aVoid) {
+            f1 = aVoid;
+            try{
+                j1 = new JSONObject(f1);
+                ja = j1.getJSONArray("server_response");
+                    JSONObject j2 = ja.getJSONObject(0);
+                    t1.setText(j2.getString("TeamAname"));
+                    k1.setText(j2.getString("TeamAkills"));
+                    t2.setText(j2.getString("TeamBname"));
+                    k2.setText(j2.getString("TeamBkills"));
+                    t3.setText(j2.getString("TeamCname"));
+                    k3.setText(j2.getString("TeamCkills"));
+
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+            }
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            url1 = "your website";
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try{
+                URL url = new URL(url1);
+                HttpURLConnection h1 = (HttpURLConnection)url.openConnection();
+                InputStream i1 =h1.getInputStream();
+                BufferedReader b1 = new BufferedReader(new InputStreamReader(i1));
+                StringBuilder s1 = new StringBuilder();
+                while((J1 = b1.readLine()) != null)
+                {
+                    s1.append(J1 + "\n");
+                }
+            b1.close();
+                i1.close();
+                h1.disconnect();
+                return s1.toString().trim();
+            }
+            catch(MalformedURLException e)
+            {
+                e.printStackTrace();
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
